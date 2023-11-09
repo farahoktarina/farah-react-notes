@@ -18,6 +18,9 @@ function SideBar({addNote}) {
   const onSubmitData = (ev) => {
     ev.preventDefault()
     addNote({title, body})
+    setTitle('')
+    setTitleLength(50)
+    setDescription('')
   }
 
   return (
