@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function MainContent({data}) {
+function MainContent({data, onDelete}) {
 
   return (
     <div className="md:pl-[25rem] w-full p-5 bg-slate-900">
@@ -30,7 +30,7 @@ function MainContent({data}) {
                       <div className="cursor-pointer text-sm text-yellow-700 hover:text-yellow-400 px-2">
                         Archieve
                       </div>
-                      <div className="cursor-pointer text-sm text-red-700 hover:text-red-400 px-2">
+                      <div onClick={() => onDelete(item.id)} className="cursor-pointer text-sm text-red-700 hover:text-red-400 px-2">
                         Delete
                       </div>
                     </div>

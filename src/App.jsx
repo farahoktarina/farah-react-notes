@@ -20,10 +20,17 @@ function App() {
     )
   }
 
+  const setDelete = (id) => {
+    console.log(id)
+    setData(
+      data => data.filter(x => x.id !== id)
+    )
+  }
+
   return (
     <main className="flex min-h-screen w-full md:flex-row flex-col">
       <SideBar addNote={setAddNote} />
-      <MainContent data={data} />
+      <MainContent data={data} onDelete={setDelete} />
     </main>
   )
 }
