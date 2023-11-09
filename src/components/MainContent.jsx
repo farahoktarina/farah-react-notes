@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { getInitialData } from '../utils/index.js'
 
-
-function MainContent() {
-  const [data, setData] = useState(getInitialData)
+function MainContent({data}) {
 
   return (
     <div className="md:pl-[25rem] w-full p-5 bg-slate-900">
