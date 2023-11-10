@@ -5,7 +5,7 @@ import { getInitialData, showFormattedDate } from './utils/index.js'
 
 function App() {
   const [data, setData] = useState(getInitialData)
-  
+
   const setAddNote = ({title, body}) => {
     setData(
       [ ...data, 
@@ -20,17 +20,34 @@ function App() {
     )
   }
 
-  const setDelete = (id) => {
-    console.log(id)
+  const searchNote = (val) => {
+    if (val === '') setData(getInitialData)
+    else {
+      const filtered = data.filter(x => x.title.toLowerCase().includes(val.toLowerCase()))
+      setData(filtered)
+    }
+  }
+
+  const deleteNote = (id) => {
     setData(
       data => data.filter(x => x.id !== id)
     )
+  }
+    
+  const archieveNote = (id) => {
+    const filtered = data.map(x => {
+        if (x.id === id) {
+          x.archived = true
+          return x;
+        } else return x
+      })
+    setData(filtered)
   }
 
   return (
     <main className="flex min-h-screen w-full md:flex-row flex-col">
       <SideBar addNote={setAddNote} />
-      <MainContent data={data} onDelete={setDelete} />
+      <MainContent data={data} onSearch={searchNote} onDelete={deleteNote} onArchive={archieveNote} />
     </main>
   )
 }

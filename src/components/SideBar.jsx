@@ -24,7 +24,7 @@ function SideBar({addNote}) {
   }
 
   return (
-    <div className="md:w-[25rem] w-full md:h-screen h-[10rem] fixed p-5 bg-slate-900 border-2 border-l-0 border-t-0 border-b-0 border-slate-800"> 
+    <div className="md:w-[25rem] w-full md:h-screen h-auto md:fixed block p-5 bg-slate-900 border-2 border-l-0 border-t-0 border-b-0 border-slate-800"> 
       <div className="flex flex-col">
         <h1 className="text-sky-500 text-xl mb-4">Create New Note</h1>
         <form onSubmit={onSubmitData}>
